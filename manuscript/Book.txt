@@ -8,7 +8,7 @@
 07_CommonCustomizations.md
 08_KrambookBuildAGem.md
 09_ASublimeMarkdownExperience.md
-10_ASublimeMarkdownExperience.md
+10_AllTheFeaturesOfLeanpub.md
 11_Pitfalls.md
 12_Prepping.md
 13_WrapUp.md
