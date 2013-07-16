@@ -217,7 +217,7 @@ The final method looks like:
     To get html you can either utilize the export html feature (found in your book's actions tab) or
     open the ePub (an ePub is actually just a zip of html files) and grab the HTML from there.
 
-# This is icon indicates some sort 
+## Icons
 
 Leanpub provides warning, information, tips, error, discussion icon blocks etc. They all look pretty much the same and
 consist of an icon on the left with some text on the right. They look like this:
