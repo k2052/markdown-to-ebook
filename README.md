@@ -117,6 +117,7 @@ that in return, you contribute back to me what I contributed to you.
 
 How much this work is worth to you is up for you to decide. I hope you find it's a lot.
 
-You can purchase this book on [Leanpub]() or if you like you can just drop me some bitcoin.
+You can purchase this book on [Leanpub](http://leanpub.com/markdown-to-ebook) or if you like you can just drop me some
+bitcoin: `1csGsaDCFLRPPqugYjX93PEzaStuqXVMu`.
 
 ~K-2052
