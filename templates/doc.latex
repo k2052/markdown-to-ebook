@@ -1,0 +1,70 @@
+<%
+encmap = {
+  'UTF-8' => 'utf8x',
+  'US-ASCII' => 'ascii',
+  'ISO-8859-1' => 'latin1',
+  'ISO-8859-2' => 'latin2',
+  'ISO-8859-3' => 'latin3',
+  'ISO-8859-4' => 'latin4',
+  'ISO-8859-5' => 'latin5',
+  'ISO-8859-9' => 'latin9',
+  'ISO-8859-10' => 'latin10',
+  'CP850' => 'cp850',
+  'CP852' => 'cp852',
+  'CP858' => 'cp858',
+  'CP437' => 'cp437',
+  'CP865' => 'cp865',
+  'CP1250' => 'cp120',
+  'CP1252' => 'cp1252',
+  'CP1257' => 'cp1257'
+}
+%>
+\documentclass{scrartcl}
+<% if RUBY_VERSION >= '1.9' %>
+\usepackage[<%= encmap[@body.encoding.name] %>]{inputenc}
+<% else %>
+\usepackage[mathletters]{ucs}
+\usepackage[utf8x]{inputenc}
+<% end %>
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage[overlay]{textpos}
+\usepackage{wallpaper}
+\usepackage{graphicx}
+
+\definecolor{bluekeywords}{rgb}{0.13,0.13,1}
+\definecolor{greencomments}{rgb}{0,0.5,0}
+\definecolor{redstrings}{rgb}{0.9,0,0}
+
+\usepackage{listings}
+\lstset{breaklines=true,
+  showstringspaces=false,
+  commentstyle=\color{greencomments},
+  keywordstyle=\color{bluekeywords},
+  stringstyle=\color{redstrings},
+  basicstyle=\ttfamily
+}
+
+<% @converter.data[:packages].each {|pkg| %>\usepackage{<%= pkg %>}
+<% } %>
+\usepackage{hyperref}
+
+<% if @converter.data[:packages].include?('fancyvrb') %>
+\VerbatimFootnotes
+<% end %>
+
+\hypersetup{colorlinks=true,urlcolor=blue}
+
+\usepackage[parfill]{parskip}
+
+\begin{document}
+
+\begin{textblock*}{297mm}(0mm,0mm)
+\ThisTileWallPaper{\paperwidth}{\paperheight}{images/title_page.jpg}
+\end{textblock*}
+\cleardoublepage
+
+<%= @body %>
+\end{document}

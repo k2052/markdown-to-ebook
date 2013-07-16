@@ -1,0 +1,14 @@
+00_TOC.md
+01_HackerMeetBookBookMeetHacker.md
+02_WeAreGoingToNeedAWorkflow.md
+03_FlavorsOfMarkdown.md
+04_LeanPubbin.md
+05_LaTeXing.md
+06_LocalizingtheLeanpubWorkflow.md
+07_CommonCustomizations.md
+08_KrambookBuildAGem.md
+09_ASublimeMarkdownExperience.md
+10_ASublimeMarkdownExperience.md
+11_Pitfalls.md
+12_Prepping.md
+13_WrapUp.md
