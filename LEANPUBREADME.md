@@ -1,4 +1,4 @@
-This a book on constructing ebooks using Markdown. No esoteric and complicated formats. No WYSIWYG editors. No PDF hell. Just plaintext. 
+This is a book on constructing ebooks using Markdown. No esoteric and complicated formats. No WYSIWYG editors. No PDF hell. Just plaintext. 
 
 You'll learn everything from generating a TOC to adding cover images.
 
