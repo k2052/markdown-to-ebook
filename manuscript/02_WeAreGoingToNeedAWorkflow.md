@@ -1,29 +1,36 @@
 # We are going to need a workflow
 
 Workflows that work are the key to getting work done. We are going to need one that is both simple and adaptable to our
-future needs.  What workflow should we go with? It's hard to say. I have no idea. 
+future needs. What workflow should we go with?  
 
 I'm pulled in a thousand different directions by a thousand different solutions. iBooks Author looks nice. Nathan Barry
 went with that right? I think that is also how Josh Long wrote Execute. But what about epub? Isn't epub just html at 
-its core? Maybe I'll write in hHTMl and use an HTML to PDF converter? That would allow me to craft all sorts of
-customizations in CSS. I could really style things awesomely. I could release web version with fancy JS stuff and blow
-people's minds with a really unique ebook release.
+its core? Maybe I'll write in HTMl and use an HTML to PDF converter? That would allow me to craft all sorts of
+customizations in CSS. I could really style things awesomely. I could release a web version with fancy JS stuff and 
+blow people's minds with a really unique ebook release.
 
-But what about organization of my writings, writing stuff in pure HTMl is going to be a mess. I guess I could use a
+But what about organization of my writings, writing stuff in pure HTML is going to be a mess. I guess I could use a
 static site generator and write in a templating language to keeps things organized into chapters. But maybe I should 
 use a ebook authoring tool that handles this for me? What about Scrivener? Don't screenplay authors use that? What if 
 I want to deliver a screenplay for my book in case they decide to adapt into a movie?
 
-Choosing a workflow from a place of ignorance is near impossible. It is clouded by lack of knowledge, too many choices,
-and even delusions of grandeur. Let's start by making choices we can make now then work our way gradually towards a
-solution. Making choices we can make gets us closer to making the one's we cant. Choices create constraints and
-constraints illuminates the path ahead. How do we make some choices? Ask questions. The first questions we can ask are;
-1. Where will we distribute the book? 2. What format do we need to distribute it?
+Choosing a workflow from a place of ignorance is near impossible. It is clouded by a lack of knowledge, too many
+choices and delusions of grandeur. 
+
+Let's start by making choices we can make now then work things out from there. Choices create constraints and
+constraints illuminate the path ahead. Making choices we can make gets us  closer to making the ones we cant.
+
+How do we make some choices? Ask questions. The first questions we can ask are; 
+
+1. Where will we distribute the book? 
+2. What format do we need to distribute it?
 
 Once we have a book how will we distribute it? We want something that works well for the pre-writing phase as well as
 the publishing. Maybe even something that generates our ebooks from our source formats for us. Such a service exists
-and it's called [Leanpub](https://leanpub.com). What does Leanpub use as it's source format? Markdown. So, we will need
-to use  Markdown. We have our first constraint, Markdown.
+and it's called [Leanpub](https://leanpub.com). 
+
+What does Leanpub use as it's source format? Leanpub uses Markdown. So, we will need to use Markdown. We now have our
+first constraint.
 
 There are a zillion different options for ebook formats so whatever we choose it's going to have to be capable of
 converting into a variety of formats. We will need something that can go into PDF, epub, kindle and mobi formats. It
