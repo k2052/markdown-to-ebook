@@ -1,19 +1,19 @@
-# Hacker meet book. Book meet hacker.
+# An Introduction
 
-This was written because I was annoyed. Annoyed by all the annoying parts of writing an ebook. Annoyed by;
-managing code snippets, differing markdown implantations, ebooks editors that were more about dialogs than writing, the
-confusing syntax of LaTeX and the insanity of format divergence.
+He sat down at his typewriter and begin to write.... Wait, what is this? Is this movie set in 1990? *checks IMDB* It is
+set in 2008 --- why is he using a typewriter?! Please, not another quirky writer trope...
 
-All these annoyances take energy to deal with, energy is inspiration and energy is a finite resource . I wanted to stop
-wasting inspiration on things that weren't writing. I wanted my tools for writing to free me to write not control me,
-not shackle me. I wanted my tools to work for me not me for them. I wanted to spend my time writing not
-thinking about how I would transform that writing into a book. I wanted a book to be a natural result of my workflow, 
-innate to the process.
+Writing a book can be daunting, learning the tools to write the book can be even more daunting. A quick google search
+will turn up a multitude of services, tools, apps and frameworks designed to write a book. Apps; iBooks, Adobe Acrobat,
+inDesign Skyreader, Kindle Publisher etc. Formats; PDF, ePUB, LaTeX....
 
-The more energy you expend on stupid things the less you have to write. Writing quality suffers, procrastination sets
-in, you stop working and before you know it you have lost all energy to complete the book. This book attempts to
-eliminate drag, to streamline you to a finished book. It doesn't cover everything, it gives you just enough knowledge 
-so you can focus on what matters, the writing.
+It's not so far fetched that a writer when faced with this mess of "solutions" might simply choose a trusty old
+typewriter or even pen and paper. Or he might get so caught up writing tools for writing that he never gets the time to
+write.
+
+This book is a result of my search for a get out of the way method of writing ebooks. Something that keeps my focus on
+the writing and not on the process of writing. It doesn't cover everything, it gives you just enough knowledge so you
+can focus on what matters, the writing.
 
 This book follows the hackers ethos of not obscuring things. Problem areas are not glossed over, they are put right out
 in the open, so you can learn from them. Where I struggled you will know I did and why I did. I wrote this book through
@@ -26,7 +26,7 @@ work. I tried not to make things look easier than they are. By showing you my fa
 them.
 
 This is not a book for those that like quick summaries and step by step processes. It's a book for those that like to
-learn something. The only way to eliminate frustration is to internalize your knowledge. To make it so much a part of
+learn something. The only way to eliminate frustration is to internalize your knowledge, to make it so much a part of
 you that it cant be ignored. 
 
 Unless you truly know how to do something then doing it is going to get in the way and take energy away from your
@@ -44,6 +44,8 @@ of extras. Kramdown has been chosen as our implementation for a few additional r
 4. It's coded in Ruby. Tools like pandoc are just as powerful as Kramdown but pandoc is unfortunately written in
 Haskell. Haskell would only increase the learning curve and add more annoying parts to getting our
 ebook published.
+
+## What you need to know
 
 You wont need to know much to get through this book but you will need to be comfortable hacking around. Comfortable is 
 a dangerous word for communication, one's interpretation can greatly vary from the intended meaning. Let's go over some
@@ -65,17 +67,3 @@ at ease, not queasy and fearful, then you are ready.
 We are going to edit Ruby files and add things, so some rudimentary ability to read and edit Ruby will be necessary. If
 you are comfortable enough to edit Gemfiles and install gems using bundler then you'll be fine. Ruby won't be necessary
 for your work flow in the end, but if you want to move beyond the book some Ruby knowledge will be beneficial.
-
-How to use this book? Read it. Now I know what you might be thinking: "He means digest this fucker, really reflect on
-it." Or perhaps you think I mean something really simple yet profound like "Become the book.".  
-
-Neither. 
-
-I left instructions vague so you can decide how to approach the book. Don't follow rules in how you learn. You know how
-you learn. Follow your gut. 
-
-If it feels right to read the book non-stop then do it. If it feels right to read the TOC,
-skim over the chapters, and then leave it until you need to know the contents, then do that. If it feels right to only
-look up the sections you need to get what you want done, then just do that. 
-
-How you read this book is up to you. Just read it.
