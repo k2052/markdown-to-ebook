@@ -2,7 +2,7 @@
 
 I'm pulled in a thousand different directions by a thousand different solutions. iBooks Author looks nice. Nathan Barry
 went with that right? I think that is also how Josh Long wrote Execute. But what about epub? Isn't epub just html at 
-its core? Maybe I'll write in HTMl and use an HTML to PDF converter? That would allow me to craft all sorts of
+its core? Maybe I'll write in HTML and use an HTML to PDF converter? That would allow me to craft all sorts of
 customizations in CSS. I could really style things awesomely. I could release a web version with fancy JS stuff and 
 blow people's minds with a really unique ebook release.
 
@@ -81,8 +81,7 @@ We will get a link sent to us for our first book. Get Dropbox setup if you haven
 
 I> You can utilize the web interface for Dropbox. No need to download/install.
 
-Visit the getting started page for your book *leanpub.com/bookname/getting_started* e.g *https://leanpub.com
-/markdown-to-ebook/getting_started*
+Visit the getting started page for your book *leanpub.com/bookname/getting_started* e.g *https://leanpub.com/markdown-to-ebook/getting_started*
 
 The first thing we can take away from this page is that we will use Markdown. If we incorporate fancy stuff it
 will be by customizing the conversion of our Markdown. I actually like this as it keeps our text straightforward and
