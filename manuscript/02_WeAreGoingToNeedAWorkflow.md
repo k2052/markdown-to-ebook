@@ -92,9 +92,9 @@ We need to know a little about the Markdown flavor we are dealing with though. A
 
     Hey, co-founder of Leanpub here.
 
-    If you're interested in the differences between Pandoc and Leanpub, there are two places to look. Leanpub is based off
-    of Kramdown, so there's the Kramdown documentation[1]. We have made a few extensions to Kramdown to support things that
-    books need, so you'll also want to look at the Leanpub manual[2].
+    If you're interested in the differences between Pandoc and Leanpub, there are two places to look. Leanpub is based
+    off of Kramdown, so there's the Kramdown documentation[1]. We have made a few extensions to Kramdown to support
+    things that books need, so you'll also want to look at the Leanpub manual[2].
 
     If you have any questions, send us an email at hello@leanpub.com.
 
