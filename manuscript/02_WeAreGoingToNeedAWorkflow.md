@@ -90,16 +90,14 @@ simple, we will only have to use convoluted LaTeX when absolutely necessary.
 We need to know a little about the Markdown flavor we are dealing with though. After some quick googling I found this 
 [HN comment](https://news.ycombinator.com/item?id=4998144):
 
-~~~
-Hey, co-founder of Leanpub here.
+    Hey, co-founder of Leanpub here.
 
-If you're interested in the differences between Pandoc and Leanpub, there are two places to look. Leanpub is based off
-of Kramdown, so there's the Kramdown documentation[1]. We have made a few extensions to Kramdown to support things that
-books need, so you'll also want to look at the Leanpub manual[2].
+    If you're interested in the differences between Pandoc and Leanpub, there are two places to look. Leanpub is based off
+    of Kramdown, so there's the Kramdown documentation[1]. We have made a few extensions to Kramdown to support things that
+    books need, so you'll also want to look at the Leanpub manual[2].
 
-If you have any questions, send us an email at hello@leanpub.com.
+    If you have any questions, send us an email at hello@leanpub.com.
 
-[1]: http://kramdown.rubyforge.org/syntax.html [2]: https://leanpub.com/help/manual
-~~~
+    [1]: http://kramdown.rubyforge.org/syntax.html [2]: https://leanpub.com/help/manual
 
 So, Leanpub uses Kramdown, this is good news. This makes incorporating Leanpub into our workflow even easier. 
