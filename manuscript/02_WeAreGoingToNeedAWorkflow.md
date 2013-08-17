@@ -1,47 +1,46 @@
 # We are going to need a workflow
 
-Workflows that work are the key to getting work done. We are going to need one that is both simple and adaptable to our
-future needs. What workflow should we go with?  
-
 I'm pulled in a thousand different directions by a thousand different solutions. iBooks Author looks nice. Nathan Barry
 went with that right? I think that is also how Josh Long wrote Execute. But what about epub? Isn't epub just html at 
 its core? Maybe I'll write in HTMl and use an HTML to PDF converter? That would allow me to craft all sorts of
 customizations in CSS. I could really style things awesomely. I could release a web version with fancy JS stuff and 
 blow people's minds with a really unique ebook release.
 
-But what about organization of my writings, writing stuff in pure HTML is going to be a mess. I guess I could use a
+But what about organization of my writings -- writing stuff in pure HTML is going to be a mess. I guess I could use a
 static site generator and write in a templating language to keeps things organized into chapters. But maybe I should 
 use a ebook authoring tool that handles this for me? What about Scrivener? Don't screenplay authors use that? What if 
 I want to deliver a screenplay for my book in case they decide to adapt into a movie?
 
-Choosing a workflow from a place of ignorance is near impossible. It is clouded by a lack of knowledge, too many
-choices and delusions of grandeur. 
+Choosing a workflow from a place of ignorance is an exercise in futility. Any choice we make will be clouded by a lack
+of knowledge, too many options and possibly delusions of grandeur.
 
-Let's start by making choices we can make now then work things out from there. Choices create constraints and
-constraints illuminate the path ahead. Making choices we can make gets us  closer to making the ones we cant.
+If we want to find a workflow that works we are going to have start with very basic questions. Questions
+we can see the answers to immediately. If we answer the simple questions first then the complex ones will become
+clearer. Answering some basic questions will give us constraints and illuminate the path ahead.
 
-How do we make some choices? Ask questions. The first questions we can ask are; 
+## Where will we distribute the book?
 
-1. Where will we distribute the book? 
-2. What format do we need to distribute it?
+For distribution it would be nice to have something that works well for the writing phase as well as the publishing
+phase. Perhaps even something that generates our ebooks from our source formats for us. Such a service exists and it's
+called [Leanpub](https://leanpub.com).
 
-Once we have a book how will we distribute it? We want something that works well for the pre-writing phase as well as
-the publishing. Maybe even something that generates our ebooks from our source formats for us. Such a service exists
-and it's called [Leanpub](https://leanpub.com). 
-
-What does Leanpub use as it's source format? Leanpub uses Markdown. So, we will need to use Markdown. We now have our
+What does Leanpub use as its source format? Leanpub uses Markdown. Thus, we will need to use Markdown; we now have our
 first constraint.
+
+## What final format does it need to be in when distributed?
 
 There are a zillion different options for ebook formats so whatever we choose it's going to have to be capable of
 converting into a variety of formats. We will need something that can go into PDF, epub, kindle and mobi formats. It
-just so happens that with the exception of PDF all these formats are HTML at there core. What is a good option for
-writing HTML ebooks? Markdown of course. Markdown is simple, flexible, looks great as plaintext and most importantly, 
-it is built with HTML as the intended output format.
+just so happens that with the exception of PDF all these formats are HTML at there core. 
+
+What is a good option for writing HTML ebooks? Markdown of course. Markdown is simple, flexible, looks great as
+plaintext and most importantly, it is built with HTML as the intended output format.
 
 How then do we turn Markdown into PDFs? The answer lies in LaTeX, which will be our in-between format of choice. LaTeX
-is to PDF as Markdown is to HTML. They're best buds and get together all the time to just chat and mark things up. Does
-LaTeX mean we will have to maintain two separate formats? Nope. It just so happens that the Kramdown flavor of Markdown
-can be converted to LaTeX.
+is to PDF as Markdown is to HTML. They're best buds and get together all the time to just chat and mark things up. 
+
+Does LaTeX mean we will have to maintain two separate formats? Nope. Markdown can be easily converted into LaTeX
+using tools like Kramdown.
 
 ## LaTeX
 
@@ -69,18 +68,11 @@ just focus on our writing. Things need to be too easy or they won't be made use 
 background and get out of the way of creation or you'll never use them.
 
 If we are actually going to make real use of LaTeX it's going to have to work for us, not us for it. It will have to
-complement our workflow, not supplement it. We will have to get our hands dirty a bit  but it will be minimal. We will
-adopt a workflow that makes LaTeX work for us.
+complement our workflow, not supplement it. We will adopt a workflow that makes LaTeX work for us.
 
 ## Leanpub
 
-It would be nice to be a bit flexible in distribution models, especially in the early phases. We might want to gauge
-reader interest. We might want to get feedback. We might even want to get some cash. It would be nice to have tools 
-that make accomplishing this too easy. Thankfully there is a web service called [Leanpub](https://leanpub.com) that handles most 
-of the early pre-phases of ebook publishing. It can handle later phases but it's mostly geared toward a pre-publishing 
-phase.
-
-The first step is to dive right in. Let's visit Leanpub, get registered, and create a test book. 
+Let's visit Leanpub, get registered, and create a test book. 
 
 After we get signed up, Leanpub will inform of us the basics. We will upload our ebook files via Dropbox. They will be
 written in plain text using Markdown.
@@ -90,9 +82,9 @@ We will get a link sent to us for our first book. Get Dropbox setup if you haven
 I> You can utilize the web interface for Dropbox. No need to download/install.
 
 Visit the getting started page for your book *leanpub.com/bookname/getting_started* e.g *https://leanpub.com
-/ebooks-for-hackers/getting_started*
+/markdown-to-ebook/getting_started*
 
-The first thing we can take away form this page is that we will use Markdown. If we incorporate fancy stuff it
+The first thing we can take away from this page is that we will use Markdown. If we incorporate fancy stuff it
 will be by customizing the conversion of our Markdown. I actually like this as it keeps our text straightforward and
 simple, we will only have to use convoluted LaTeX when absolutely necessary.
 
@@ -111,4 +103,4 @@ If you have any questions, send us an email at hello@leanpub.com.
 [1]: http://kramdown.rubyforge.org/syntax.html [2]: https://leanpub.com/help/manual
 ~~~
 
-So Leanpub uses Kramdown, this is good news. This makes incorporating Leanpub into our workflow even easier. 
+So, Leanpub uses Kramdown, this is good news. This makes incorporating Leanpub into our workflow even easier. 
