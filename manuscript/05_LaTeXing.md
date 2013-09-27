@@ -1,36 +1,38 @@
 # LaTeXing
 
-You might be hoping to localize your Leanpub workflow a little more. Instead of just generating HTML previews of our
-Markdown files it might be nice to generate the full fledged PDFs. It's no good being tied to Leanpub for our PDFs.
+It's no good being tied completely to Leanpub for publishing. Eventually we will want someway to locally generate
+all the formats that Leanpub does. We have already covered generating HTML locally, but what about PDFs? 
 
-Kramdown doesn't support PDFs natively, it uses an in-between format called LaTeX. Before we get started on converting
-Markdown to PDFs we are going to have to learn some LaTeX basics. LaTeX knowledge is not strictly necessary, but it's
-going to be immensely beneficial to know how the magic works. 
+Kramdown doesn't support PDFs natively, it uses an in-between format called LaTeX. So before we get started on
+converting Markdown to PDFs we are going to have to learn some LaTeX. LaTeX knowledge is not strictly necessary
+but it's going to be beneficial to know how the magic works.
 
 Magic is great and makes things easier, but when it fails, and you don't know how it works, frustration finds its way
 into your soul. Frustration kills the desire to create and will leave you a sad, bleeding, heaving mess on the floor.
 Probably not that graphic, but it's terrible, trust me.
 
-Let's avoid frustration and learn a little LaTeX first.
+Let's avoid some future frustration and learn a little LaTeX.
 
 ## Installing LaTeX 
 
 Before you dive in there are some things you need to know. The LaTeX community is a bit bloated.  Well, maybe "a bit" 
 is an understatement, LaTeX makes Photoshop seem like an anorexic. This bloat is the result of the community being 
 really old in software years -- TeX is older than I am. As a result of its age, LaTeX has accumulated a ton of stuff. 
-Its standard distributions are measured in the gigabytes! It has more GUIs than a Windows development community, more
+
+LaTeX standard distributions are measured in the gigabytes! It has more GUIs than a Windows development community, more
 packages than a Ruby community and an outdated package distribution model that makes Macports seem like homebrew. TeX 
 is what happens when an emacs-esque community spends its time writing technical papers and doesn't have VIM fights to 
 keep them busy.
 
-Bloat in distributions alone wouldn't be so bad but documentation is bloated as well. Want to add code highlighting?
-There are a million different solutions and a million different suggestions. Want a GUI for previewing? Pick one of
-dozens. Want a implementation that is more turing complete? Do you want your turing in LaTeX, Lua, or Ruby?
+Bloat in distributions alone wouldn't be so bad but the documentation is bloated as well.  Want to add code
+highlighting? There are a million different solutions and a million different suggestions. Want a GUI for previewing?
+Pick one of dozens. Want an implementation that is more turing complete? Do you want your turing in LaTeX, Lua, or 
+Ruby?
 
 I'm going to simplify things and tell you what to use. You don't have to ultimately follow my suggestions, but stick
 with them until you figure out what you're doing. Fight the urge to over evaluate and pick the best solutions. Without
 knowledge you won't be able to evaluate anything. Choosing from a place of ignorance is an exercise in futility. You'll
-find that by diving in, you'll discover what you like, what your taste in tools is. You'll ultimately discover what
+find that by diving in, you'll discover what you like -- what your taste in tools is; you'll ultimately discover what
 works for you.
 
 ### On Mac
@@ -64,13 +66,13 @@ document.
 
 ## Installing LaTeX Packages on Mac
 
-There is no management of LaTeX packages on Mac. To install them you either use _MacTeXtras_ from [mactex.org](http://tug.org/mactex)
-or manually copy them into your LaTeX path.
+There is no management of LaTeX packages on Mac. To install them you either use _MacTeXtras_ from
+[mactex.org](http://tug.org/mactex) or manually copy them into your LaTeX path.
 
 ## Installing LaTeX Packages on Ubuntu (and other Debians)
 
 Ubuntu (and other Debian based distros) don't have tlmgr (the LaTeX package manager) and you will use _apt_ to manage
-LaTeX packages. You might be thinking; "This is ugly and stupid. I mean, Ruby has games, Lua has luarooks, Python has
+LaTeX packages. You might be thinking: "This is ugly and stupid. I mean, Ruby has games, Lua has luarooks, Python has
 peepee, Cocoa has Cocaine Pods, even PHP has something I cant remember the name of [^all-the-names]. Why cant LaTeX get
 with the times?"
 
@@ -108,11 +110,12 @@ Install them with:
     Gems for ruby, luarocks for lua, pypy for python, pear + composer for php, CocoaPods for cocoa respectively.
 
 [^facetious]:      
-    I'm being facetious. It's not really that big of a deal and works quite efficiently. It could     be
-    better, but it could also be way way worse. It's not like you will [see below] need to manage multiple versions of
-    LaTeX, so using apt is really adequate for LaTeX packages. Unlike say a Ruby app, your final deliverable is more 
+    I'm being facetious. It's really not that big of a deal and works quite efficiently. It could be
+    better but it could also be way way worse. It's not like you will [see below] need to manage multiple versions of
+    LaTeX for different books. Unlike say a Ruby app, your final deliverable is more 
     like a creation of art than it is programming. Users don't care what version of LaTeX you used to generate your PDF
-    . Well, unless they're one of those PDF version snobs.
+    . Well, unless they're one of those PDF version snobs god I hate those guys. They even have their own hats and 
+    handshakes now.
 
 ## Using Packages
 
@@ -133,16 +136,15 @@ That is about all you need to know to get up and running. Have fun and break thi
 ## LaTeX: A Very Brief Introduction
 
 The first thing you need to know to grok LaTeX is that everything is done using back-slash tags -- everything, yes,
-everything. They look like this; `\title`, `\document`, `\newpage` etc. These _tags_ are referred to as "commands", 
+everything. They look like this; `\title`, `\document`, `\newpage` etc. These _tags_ are referred to as *commands*
 remember that, it's important for googling.
 
-To pass an argument to a command we use braces e.g `\title{On the speed of Unladen Swallows in Vacuums}`. LaTeX is a 
-bit weird, it uses two different syntaxes for arguments, one for optional arguments and one required arguments.
-Content that will be operated on is passed via curly braces and other arguments are passed via brackets like so:
+To pass an argument to a command we use braces e.g `\title{On the speed of Unladen Swallows in Vacuums}`. LaTeX 
+uses two different syntaxes for arguments, one for optional arguments and one required arguments. Content that will be operated on is passed via curly braces and the other arguments are passed via brackets e.g:
 `\textbf[Mono, 10pt]{BOld It}`. Each required argument ends up in it's own curly brace like this: `\begin{arg}{arg}`.
-The arguments in the curly braces are required and the ones in brackets are optional.
+Arguments in the curly braces are required and ones in brackets are optional.
 
-Intuitively, you're likely to think about LaTeX like you would a text markup language; the tags being processed one
+Intuitively, you're likely to think about LaTeX like you would a text markup language; tags being processed one
 after another and the output being inserted in their place. You can avoid a lot of frustration if you think of LaTeX
 more like a programming language than a markup language. Although LaTeX isn't turing complete [^turing-completeness], 
 it can do a lot of crazy, very flexible, powerful, unexpected things.
@@ -179,10 +181,10 @@ Then we set some metadata:
     \author{Darth Vader}
     \date{\today{}}
 
-This won't be displayed yet, not until we call the commands to display them. They are sorta like like global variables.
-The relevant command has to be called later to output the variables. Like a php echo statement or a ruby puts.
+This wont be displayed until we call the commands that output it. You can think of the above commands like variables.
+A corresponding command has to be called later to output a variable. Much like a php _echo_ or a ruby _puts_.
 
-Finally we open the document and call \maketitle to insert a properly formatted title:
+Open the document and call \maketitle to insert a properly formatted title:
 
 {:lang="TeX"}
     \begin{document}
@@ -194,12 +196,12 @@ This results in the following output:
 ![First Document Output](images/FirstDocument.png){:center=""}
 
 A mixture of programming and markup language is a bit strange at first but very powerful once you get the hang of it. A
-LaTeX document can be used to build articles, books, generate citations, hit lists, html pages, table of contents etc.
-There are commands and packages for accomplishing practically any sort of output.
+LaTeX document can be used to build articles, books, generate citations, hit lists (not recommended), html pages, table
+of contents etc. There are commands and packages for accomplishing practically any sort of output.
 
 I'm not going to focus much on the commands available in LaTeX. Once you know the syntax you can learn the commands on 
-a need to know basis. Whenever you need to do something google it.  Don't understand a command? Look up its 
-documentation. It's a good idea to use references to search for commands you need, documentation is your friend.
+a need to know basis. Whenever you need a new command google it. Don't understand a command? Look up its 
+documentation.
 
 [^turing-completeness]: 
   I lied. Technically LaTeX is turing complete. However, in practice using LaTeX as a programming language is near 
@@ -208,13 +210,8 @@ documentation. It's a good idea to use references to search for commands you nee
 
 ## Custom LaTeX Styles
 
-_I have no idea what I'm looking at_ Perhaps, not the best reaction to have when writing a technical book. This sort of
-reaction is appropriate for a suicidal deer or a blind man seeing for the first time; not appropriate at all for me,
-intending to explain LaTeX styles to you.  What is the source of my no-ideaism? *LaTeX class files*.
-
-There are two types of things you can use to customize LaTeX. Style files, with the extension `.sty` and `.cls` files
-with the extension. Wait, I did that last one backwards. Let's try that again... and class files with the extension
-`.cls`. Presto! Damn, I'm good at this writing thing!
+There are two types of things you can use to customize LaTeX. Style files, with the extension `.sty` and class files
+with the extension `.cls`.
 
 Style files, unlike their css brethren in the HTML world, do a lot more than handle styles. They're basically a
 collection of anything LaTeX. You can put macros, styles, commands etc in them and then reuse them as packages later.
@@ -230,17 +227,18 @@ They look a little like this:
     \endinput
 
 - *\NeedsTeXFormat{...}* Says I need this LaTeX version or I will destroy your TeX and make it look like barf. 
-- *\ProvidesPackage* Does what it says i.e details what the package is. The name (custom) must match the filename without the extension. 
+- *\ProvidesPackage* Does what it says i.e details what the package is. The name ("custom") must match the filename without the extension. 
 - *\endinput* You must close the package with this.
 
-Then to use them you just do:
+To use them you just call the `\usepackage` command:
 
 {:lang="TeX"}
     \usepackage{custom} 
 
-The package must to be in your LaTeX path for that to work. Where your LaTeX path is, I have no idea. Probably
-where you last left it? Retrace your steps man. Depending on your installation it's whatever `$ kpsewhich -var-
-value=TEXMFHOME` tells you. 
+The package must be in your LaTeX path. Where your LaTeX path is, I have no idea. Probably
+where you last left it? Retrace your steps? I digress.
+
+Depending on your installation the LaTeX path is whatever `$ kpsewhich -var- value=TEXMFHOME` tells you. 
 
 What is _kpsewhich_? I'll let the docs tell you:
 
@@ -252,7 +250,7 @@ What is _kpsewhich_? I'll let the docs tell you:
 Ah, good old _Kpathsea_. I've been Kpathing since I was a wee little child. Actually no, but your sarcasm detector saw
 that coming. 
 
-So, what is Kpathsea? Do I dare type `$ kpathsea` and risk descent further down the rabbit hole? I'm expecting a
+So, what is Kpathsea? Do I dare type `$ kpathsea` and risk falling further down the rabbit hole? I'm expecting a
 definition like:
 
 {:lang="sh"}
@@ -264,8 +262,9 @@ Let's brave the man anyway and see what we come up with:
     $ kpathsea
     zsh: command not found: kpathsea
 
-Thank god it's something revealing. I feel like I'm learning the secrets of the Kpathsea universe. What wonders abound 
-I wonder? Will I discover the secret to immortality? The properties of God? A new face enrichment cream?
+Thank god it's something revealing. I feel like I'm learning the secrets of the Kpathsea universe. What wonders abound
+I wonder? Will I discover the secret to immortality? The properties of God? The formula for a new face enrichment 
+cream?
 
 A quick google reveals the following:
 
@@ -276,8 +275,8 @@ A quick google reveals the following:
 [^cream]
 
 Aha! Kpathsea does exactly what path and your shell accomplish. Which actually makes sense, because TeX came before
-modern shells. TeX was first and had to invent its own stuff. How different documentation would have been had Kpathsea
-become a standard. Just a reminder to append rbenv shims to your Kpathsea. Okay, I digress. 
+modern shells. TeX was first and had to invent its own stuff. Imagine how different documentation would have been had
+Kpathsea become a standard. Just a reminder to append rbenv shims to your Kpathsea. Okay, I digress.
 
 We wont use packages for our purposes, but it's a good idea that we now know the basics of how they
 work. Now about those classes.
@@ -287,11 +286,10 @@ You know that line we see at the beginning of every LaTeX document? The one that
 {:lang="TeX"}
     \documentclass{scrartcl}
 
-This tells the document to use that class. A class can be thought of as scoping a document to a type. A type can be an;
-article, report, paper, book etc. A book class might have macros for Chapter and Covers. An article class might have
-commands for references, indexes, footnotes etc.
+This tells the document to use that class. A class can be an; article, report, paper, book etc. A book class might have
+macros for Chapter and Covers. An article class might have commands for references, indexes, footnotes etc.
 
-A class looks a little like:
+A class looks like this:
 
 {:lang="TeX"}
     \NeedsTeXFormat{LaTeX2e}
@@ -311,7 +309,7 @@ Yes, I said slides. They look like:
 
 ![Beamer Presentationn](images/beamer-presentation-screenshot.png){:center=""}
 
-And are created with code like:
+They are created with code like:
 
 {:lang="TeX"}
     \documentclass{beamer}
@@ -333,6 +331,5 @@ Classes open up a whole range of options for completely customizing the output o
 beyond the scope of this book but I encourage you to go forth into the internets and learn.
 
 [^cream]:      
-    Markdown added for effect. The original was HTML and quite boring and verbose. Grow up Chrome,      learn
+    Markdown added for effect. The original was HTML which was quite boring and verbose. Grow up Chrome, learn
     a real markup language like Markdown. Quick thought to ponder: What if the web was a simple text based language instead of XML? Would we have had near the level of innovation? Would flash still dominate site creation?
-
