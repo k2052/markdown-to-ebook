@@ -26,8 +26,9 @@ most well documented flavors but it lacks a decent adoption rate/userbase.
 ## Markdown Extra
 
 [This](http://michelf.ca/projects/php-markdown/extra) variant came originally from PHP but has since been implemented
-in several languages. Markdown Extra has a few extra features like; footnotes, extensions, attribute lists etc. We will
-be using an implementation of Markdown Extra called Kramdown. There are two reasons for this:
+in several languages. Markdown Extra has a few extra features like; footnotes, extensions, attribute lists etc.
+
+We will be using an implementation of Markdown Extra called Kramdown. There are two reasons for this:
 
 1. [Leanpub](https://leanpub.com) uses it.
 2. It is written in Ruby which is easy to hack on.
@@ -37,7 +38,7 @@ between the two aren't too significant. Most of what Github does is extra for Gi
 ebook writing. Utilizing Github features just adds stuff when your Markdown is used on Github and utilizing Kramdown
 features just adds stuff when using Kramdown.
 
-The only difference you need to care about is the fenced code blocks. Github utilizes three \`'s and Kramdown uses
+The only difference you need to care about is the syntax for fenced code blocks. Github utilizes three \`'s and Kramdown uses
 three `~~~`.
 
 They look like:
@@ -90,13 +91,13 @@ spaces then manually specify your language using attribute lists. Like this:
 
 Beyond that, just follow the [docs for Kramdown](http://kramdown.rubyforge.org/quickref.html) and you'll be fine.
 
-## You might be tempted
+## Learn your Markdown
 
-You might be tempted to avoid learning Markdown and to add an app to your workflow to handle things for you. I urge you
-to resist that temptation. You need to internalize your tools and jumping around in an app for simple things like links
-and headings will kill your workflow. There is a reason why some writers choose to be weird and use typewriters, being
-100% comfortable with your tools is the key to productivity. You'll need to know your Markdown inside and out if you
-ever hope to finish a book.
+You might be tempted to avoid learning Markdown and to add a Markdown GUI to your workflow. I urge you to resist that
+temptation. Jumping around in app menus for simple things like links and headings will kill your workflow. There is a
+reason why some writers from past eras still choose to use typewriters, being 100% comfortable with your tools is
+extremely important for productivity. You'll need to know your Markdown inside and out if you ever hope to finish a
+book.
 
 Any app that attempts to replace the Markdown text process is going to interfere with your workflow in the long run. If
 you use Markdown apps only use them to complement your writing, with fancy previews and nifty publishing tools. Don't
