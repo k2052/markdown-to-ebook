@@ -139,7 +139,7 @@ That does it for the html portion. Now how do we get asides in our PDFs? We will
 constructs something similar. There is package called fancybox that will allow us to construct simple boxes that very closely resemble the Leanpub asides. The LaTeX for it looks like this: 
 
 {:lang="TeX"}
-    \fbox{%sswwwwwwwww
+    \fbox{%
     \begin{minipage}{\textwidth}
     \section{This is title that does nothing to describe the folling content}
     Cats hate Dogs
