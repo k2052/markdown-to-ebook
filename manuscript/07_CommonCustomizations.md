@@ -5,27 +5,30 @@ extended to add new features. Any customization we make will involve modifying K
 customize the converter not the converted. Customizing things once they're already converted is unmaintainable and 
 would destroy all the delight in a work flow.
 
+I> This chapter could be skipped if all you want to do is accomplish the customizations and not learn how they're done
+I> All the customizations I made are in my fork of [kramdown](http://github.com/k2052/kramdown) in the 
+I> markdown-to-ebook branch just clone and follow the README to install.
+
 ## My God, it's full of Snippets
 
 Something completely expected and yet completely unfortunate happens when you write a book on programming, you end up
 with a ton of code blocks. Like a redhead from beyond the wall they become difficult to manage, yet, you are somehow 
-draw to them over and over. 
+drawn to them over and over. 
 
-Just when you think you have everything under control your users demand full length source 
-files. "Copying and pasting is for those with free time!" "Give us source files!" Readers shot. 
-What is an author to do?
+Just when you think you have everything under control your users demand full length source  files. "Copying and pasting
+is for those with free time!" "Give us source files!" Your readers shout!  What is an author to do?
 
-Any writer worth his salt preempts this and creates two separate things. He places code examples in external files and
-in code blocks. He delicately manages them, keeping them in sync all the time. Inevitably he'll slip up, one of his 
-code blocks will contain some random gibberish where he typed `def igiveupkillmenowcatssalkajddewoq(published='wat')` 
-and then forgot to change it. 
+Any writer worth his salt preempts this reader rebellion and creates two separate things. He places code examples in
+external files and in code blocks. He delicately manages them, keeping them in sync all the time. Inevitably he'll slip
+up, one of his  code blocks will contain some random gibberish where he typed `def
+igiveupkillmenowcatssalkajddewoq(published='wat')` and then forgot to change it.
 
-A lip-up like this can ruin careers. The author ends up homeless, wearing only Abercrombie & Fitch and coding a whore 
+A slip-up like this can ruin careers. The author ends up homeless, wearing only Abercrombie & Fitch and coding a whore 
 management system for a pimp in the shadiest part of town. He develops a cocaine addiction and ends up dead in a pool 
 of his own sweat.
 
 Programmer politicians use his death to advocate for better work circumstances for developers. His tragic story is
-covered in major magazines across the country. Cold, heartless, comments are made on Reddit and HN, they ssay that if
+covered in major magazines across the country. Cold, heartless, comments are made on Reddit and HN, they say that if
 he had only used LaTeX none of this would have happened.
 
 User alevkrf2 writes:
@@ -166,7 +169,7 @@ following:
 
 This grabs the lang as a symbol, processes it with coderay and returns the HTML. To simplify our job a bit, we are 
 going to extend this method rather than recode it. We will parse the attributes for the inclusion, pull the relevant 
-file and insert onto the element's content, then we just call super and let it handle the rest.
+file and insert onto the element's content, then we can just call super and let it handle the rest.
 
 First things first, we need to create a class that extends `Kramdown::Converter::Kramdown`:
 
@@ -238,7 +241,7 @@ in irb:
 
 {:lang="sh"}
     
-... Unfortunately, we get nothing. The first thing we are going to do is make sure we are using the correct converter
+... Unfortunately, we get nothing. The first thing we need to do is make sure we are using the correct converter
 class by `puts`ing the name of whatever is passed to *method_missing*:
 
 {:lang="ruby"}
@@ -531,7 +534,7 @@ sense. Like at the end of a great crime thriller you can see all the connections
 gimp all along! He was in the crowd with the civilians! The killer was the, omg I knew it, but I didn't, I'm 
 surprised, but I'm not. I could feel it coming."
 
-It's the best kind of feeling to see but it's the worst kind of feeling because you know you missed so much.
+It's the best kind of feeling to finally _see_ but it's the worst kind of feeling because you know you missed so much.
 
 What did I miss? Way back when I started this I was using the wrong syntax. We got codespans not codeblocks because I
 was using the wrong syntax. The dead ringer should have been the output of the _ruby_ language code into the block.
