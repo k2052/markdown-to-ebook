@@ -46,8 +46,8 @@ adding the following to _Markdown.sublime-settings_:
       ]
     }
 
-You might want to try out the ApplySyntax plugin which will handle detecting syntax based on the contents of a file.
-Get it via package control or [Github](https://github.com/facelessuser/ApplySyntax)
+You might also want to try out the ApplySyntax plugin which will handle detecting syntax based on the contents of a
+file. Get it via package control or [Github](https://github.com/facelessuser/ApplySyntax)
 
 ### Bugs with MarkdownEditing
 
