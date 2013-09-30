@@ -22,7 +22,7 @@ Would result in a method called `cats` being added to all string objects. See go
 No overkill with appendixes, summaries, and indexes in this book. Sometimes books read like an author didn't want it to
 end. This book has come to close, no reason to drag it on.
 
-Until the bots learn Markdown, write a manifesto of advocating the destruction of mankind, spurring an uprising of the
+Until the bots learn Markdown, write a manifesto advocating the destruction of mankind, spurring an uprising of the
 machines,
 
 ~K-2052
