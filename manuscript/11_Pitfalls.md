@@ -47,8 +47,7 @@ Or on paragraphs:
 
 {:lang="md"}
     Text about things here. Have you heard about the thing? Have you read the thing? Have you seen
-    the thing? Do you believe in the thing? Can you feel the thing? Can you sense the thing? Can you touch the thing? Can
-    you taste it? 
+    the thing? Do you believe in the thing? Can you feel the thing? Can you sense the thing? Can you touch the thing? Can you taste the thing? 
     {:#the-fragment-id}
 
 Any block element will do. Once you have a block element to link to, creating a link is simple:
@@ -90,9 +89,9 @@ This will return nothing (and thus hide the block from output) if the _hide_ cla
     ## Links
     {:.hide}
 
-Let's test this by running a Markdown document through it. It will fail to work. What have we missed? Let's add an inspect to the convert method and then run stuff through it again. 
+We could test this now by running a Markdown document through it but unfortunately it would fail to work. What have we missed? Let's add an inspect to the convert method and then run stuff through it again. 
 
-The inspect is looks like this
+The inspect looks like this:
 
 {:lang="ruby"}
     def convert(el, opts = {})
@@ -106,7 +105,7 @@ Running this results in the following output:
     <kd:root nil>
     ...
 
-We don't get any other elements outputted. This means everything goes through the rout element. Taking a look at
+We don't get any other elements outputted. This means everything goes through the root element. Taking a look at
 _convert\_root_ reveals that we need to override the inner method:
 
 {:lang="ruby"}
@@ -115,8 +114,7 @@ _convert\_root_ reveals that we need to override the inner method:
     end
 
 All elements with the exception of the root element are passed through the inner method. The inner method takes
-each child element and loops through them appending results for each one. It eventually returns on entire string with
-the entire converted document:
+each child element and loops through them appending results for each one. It eventually returns a string containing the entire converted document:
 
 {:lang="ruby"}
     el.children.each_with_index do |inner_el, index|
@@ -175,7 +173,7 @@ Resolving the text encoding issues is done with:
 {:lang="erb"}
     \usepackage[utf8x]{inputenc}
 
-and font issues can be resolved with:
+And the font issues can be resolved with:
 
 {:lang="erb"}
     \usepackage[T1]{fontenc}
@@ -183,9 +181,8 @@ and font issues can be resolved with:
 
 The default font encoding on TeX is 7-bit, this limits fonts to 128 glyphs. 128 glyph fonts lack many characters
 (accents etc) and will cause issues when you try to copy the missing chars. T1 font encoding is 8-bit and allows fonts
-that have 256 glyphs.
-
-The _lmodern_ package includes all those good old latin glyphs that keep latin languages functioning.
+that have 256 glyphs. The _lmodern_ package includes all those good old latin glyphs that keep latin languages
+functioning.
 
 ### Issues with new lines
 
@@ -198,7 +195,7 @@ By default TeX likes to format new paragraphs like:
 
 In most circumstances this is undesirable. There are two easy solutions; 
 
-Abbreviate the paragraph with `\noindent`
+Abbreviate the paragraph with `\noindent`:
 
 {:lang="tex"}
     A paragraph.
@@ -220,7 +217,7 @@ Markdown and PDF aren't alone with their problems. HTML can have problems to.
 
 ### Code without styles.
 
-CodeRay relies on css that you'll need to add to your css. To get it you can do:
+CodeRay relies on css that you'll need to add to your template. To get it you can do:
 
 {:lang="sh"}
     $ coderay stylesheet > coderay.css
@@ -239,8 +236,9 @@ The only question then, is who do we accept as the authority? CodeRay or Listing
 Listings and it supports short names which Listings does not. It's an easy choice.
 
 Now we just need to know the names CodeRay uses for languages and the names Listings uses. The CodeRay short names are
-based on Pygments so we can use it as a reference; consult the short names [here](http://pygments.org/docs/lexers). The Listing
-supported languages can be found [here](http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Supported_languages)
+based on Pygments so we can use it as a reference; consult the short names [here](http://pygments.org/docs/lexers). The
+Listing supported languages can be found
+[here](http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings#Supported_languages)s
 
 Open up _kramdown/converter/latex.rb_ and add a hash for the associations to the initialize method:
 
