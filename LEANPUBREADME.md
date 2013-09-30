@@ -48,59 +48,17 @@ comfortable and at ease, not queasy and fearful, then you are ready.
 Some rudimentary ability to read and edit Ruby will be necessary. If you are comfortable enough to edit Gemfiles and
 install gems using bundler then you should be fine.
 
-## Table of Contents
+## Planned Chapters
 
-- Hacker meet book. Book meet hacker
-- We are going to need a workflow
-  - LaTeX
-  - Leanpub
-- Flavors of Markdown
-  - Github flavored Markdown
-  - MultiMarkdown
-  - Markdown Extra
-  - You might be tempted
-- Leanpubbin’
-  - Leanpub Markdown flavor
-  - Previewing Leanpub locally
-- LaTeXing 
-  - Installing LaTeX 
-  - Installing LaTeX Packages on Mac 
-  - Installing LaTeX Packages on Ubuntu (and other Debians)
-  - Using Packages
-  - LaTeX: A Very Brief Introduction
-  - Custom LaTeX Styles
-- Going local 
-  - All the Markdown in One 
-  - Creating PDFs
-  - Images and Your PDFs
-- Common Customization
-  - My God, it’s full of Snippets
-  - Including Source Files With Kramdown
-  - Including Source Files With Pandoc
-  - Including Files via LaTeX
-  - Generating a Table of Contents
-  - Custom thing a ma bobs
-  - A key binding awaits
-- A Sublime Markdown Experience
-  - Count my chars, measure my words, tell me the lines, express my worth
-  - Getting Sublime 
-- Pitfalls
-  - Markdown Issues
-  - LaTeX to PDF
-  - HTML, Epub, Mobi etc
-- Prepping for Publishing
-  - Converting to epub 
-  - From epub to mobi and beyond
-  - Cover Images
-  - Some brief notes on styling things
-- Wrap Up
-  - Notes
-  - The End
+Chapters on the following topics are planned;
+
+- Using [Quarto](https://github.com/avdi/quarto) and PDFKit to generate PDFs from XHTML + CSS 
+- Web based books with runnable consoles and code samples 
 
 ## This book is currently in beta
 
 It is considered to be about 90% complete and is still undergoing proofreading, editing and revision.
-The last 10% can make a big difference in the quality of a work so I hope you are forgiving if is does not
+The last 10% can make a big difference in the quality of a work so please be forgiving if it does not
 meet your expectations. 
 
 ## A quick note on licensing

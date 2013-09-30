@@ -97,11 +97,18 @@ install gems using bundler then you should be fine.
   - Notes
   - The End
 
+## Planned Chapters
+
+Chapters on the following topics are planned;
+
+- Using [Quarto](https://github.com/avdi/quarto) and PDFKit to generate PDFs from XHTML + CSS 
+- Web based books with runnable consoles and code samples 
+
 ## This book is currently in beta
 
 It is considered to be about 90% complete and is still undergoing proofreading, editing and revision.
-The last 10% can make a big difference in the quality of a work so I hope you are forgiving if is does not
-meet your expectations. 
+The last 10% can make a big difference in the quality of a work so please be forgiving if it does not
+meet your expectations.
 
 ## A quick note on licensing
 
@@ -118,6 +125,6 @@ that in return, you contribute back to me what I contributed to you.
 How much this work is worth to you is up for you to decide. I hope you find it's a lot.
 
 You can purchase this book on [Leanpub](http://leanpub.com/markdown-to-ebook) or if you like you can just drop me some
-bitcoin: `1csGsaDCFLRPPqugYjX93PEzaStuqXVMu`.
+bitcoin: `1csGsaDCFLRPPqugYjX93PEzaStuqXVMu` or support me on [Gittip](https://www.gittip.com/k2052/)
 
 ~K-2052
