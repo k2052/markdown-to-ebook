@@ -1,9 +1,9 @@
 # Krambook: Build a Gem
 
-We are going to want to package up all these custom Kramdown extensions into a Gem.
+It's time to package up all these custom Kramdown extensions into a Gem.
 
-T> If you so desire you can skip this section and simply visit the [repo](http://github.com/k2052/krambook) and install the completed
-T> gem.
+T> If you so desire you can skip this section and simply visit the [repo](http://github.com/k2052/krambook) and
+T> install the completed gem.
 
 First create a directory for the gem:
 
