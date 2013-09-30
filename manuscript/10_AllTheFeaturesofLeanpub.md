@@ -18,9 +18,12 @@ Or if you wanted a warning box with an icon you'd do:
 {:lang="md"}
     W> This is a warning about the end of the world and the beginning of whimpers
 
-To replicate these sort of _tags_ we need two things; 1. A parser for the tag 2. A convert method that takes that block
-and turns it into an output string. Let's pull up a parser to see how one is built. Open up
-`kramdown/parser/kramdown/blockquote.rb`:
+To replicate these type of _tags_ we will need two things;
+
+1. A parser for the tag.
+2. A convert method that takes that block and turns it into an output string. 
+
+Let's look at a parser to see how one is built. Open up `kramdown/parser/kramdown/blockquote.rb`:
 
 {:lang="ruby"}
     BLOCKQUOTE_START = /^#{OPT_SPACE}> ?/
@@ -43,16 +46,17 @@ and turns it into an output string. Let's pull up a parser to see how one is bui
 The parser defines itself by passing a name and Regex to the `define_parser` method. The Regex (`BLOCKQUOTE_START`)
 simply looks for a space (optional) followed by a right angle bracket and another space which is made optional by the
 `?` mark. The parser class iterates over defined parsers and when it reaches something that matches `BLOCKQOUTE_START`
-it passes of the parsing to the matching method.
+it passes off the parsing to the matching method.
 
 The parser method turns the content of the block into an element and then returns true to the parser
 so it knows the element has been added to the element tree. It also moves a string scanner along until all the content for the block is parsed so the parser doesn't hit this block again. 
 
-This is typical behavior for most parsers. Most parsers consist of two main parts; 1. A string scanner that moves along
-parsing things using simple matching. 2. Something that turns the strings into an element tree (AST) which is later
-converted to final output by dedicated output classes.
+This is typical behavior for most parsers. Most parsers consist of two main parts; 
 
-To accomplish the parsing bits for an aside we are only going to need to duplicate the blockquote parser and tweak the Regex very slightly. Create a new file called `kramdown/parser/aside.rb` with the following contents:
+1. A string scanner that moves along parsing things using simple matching. 
+2. Something that turns the strings into an element tree (AST) which is later converted to final output by dedicated output classes.
+
+To accomplish the parsing bits for an aside we only need to duplicate the blockquote parser and tweak the Regex slightly. Create a new file called `kramdown/parser/aside.rb` with the following contents:
 
 {:lang="ruby"}
     require 'kramdown/parser/kramdown/blank_line'
@@ -104,8 +108,10 @@ Now we just need to add a convert method that returns this. Open up `kramdown/co
     def convert_aside(el, indent)
     end
 
-We need to do two things; 1. Wrap the body in the markup. 2. Make sure we parse the contents of the block so we can
-use things like codeblocks inside an aside.
+We still need to do two things; 
+
+1. Wrap the body in the markup. 
+2. Make sure we parse the contents of the block so we can use things like codeblocks inside an aside.
 
 First step:
 
@@ -113,7 +119,7 @@ First step:
   result = "<div #{html_attributes(el.attr)} class='aside sidebarish'>"
   result << '</div>'
 
-We no have our div wrapper. Now let's add call inner to pull the content:
+We now have a wrapper div. Now let's add a call to inner() to pull the content:
 
 {:lang="ruby"}
     result = "<div #{html_attributes(el.attr)} class='aside sidebarish'>"
@@ -133,7 +139,7 @@ That does it for the html portion. Now how do we get asides in our PDFs? We will
 constructs something similar. There is package called fancybox that will allow us to construct simple boxes that very closely resemble the Leanpub asides. The LaTeX for it looks like this: 
 
 {:lang="TeX"}
-    \fbox{%
+    \fbox{%sswwwwwwwww
     \begin{minipage}{\textwidth}
     \section{This is title that does nothing to describe the folling content}
     Cats hate Dogs
@@ -144,7 +150,7 @@ This results in a box that looks like this:
 ![Tight Fbox](images/TightFbox.png){:center=""}
 
 This is a bit tight and could use some padding and the left margin removed. We can add padding using `\vspace` and
-remove margins using `\noident`. The LaTeX will then look like this
+remove margins using `\noident`. The LaTeX will then look like:
 
 {:lang="TeX"}
     \vspace{5 mm}
@@ -156,7 +162,7 @@ remove margins using `\noident`. The LaTeX will then look like this
     \end{minipage}}
     \vspace{5 mm}
 
-When processed it looks like this: 
+When processed it looks like: 
 
 ![Nice Fbox](images/NiceFbox.png){:center=""}
 
@@ -165,6 +171,7 @@ Now we just need to get this added to our LaTeX converter. Open up `kramdown/con
 {:lang="ruby"}
     def convert_aside(el, opts)
     end
+
 Append the package to packages:
 
 {:lang="ruby"}
@@ -241,7 +248,7 @@ First we need to open up some generated html and get the markup for it:
       </tbody>
     </table>
 
-Now we add a parser for it. Create a file called `infoblock.rb` in `kramdown/parser/kramdown` with the following
+Next we will add a parser for it. Create a file called `infoblock.rb` in `kramdown/parser/kramdown` with the following
 contents:
 
 {:lang="ruby"}
@@ -270,7 +277,7 @@ contents:
       end
     end
 
-Now open up `convert/html.rb` and a method for converting the infoblock with the following contents:
+Now open up `convert/html.rb` and add a method for converting an infoblock:
 
 {:lang="ruby"}
     def convert_infoblock(el, indent)
@@ -291,8 +298,8 @@ Now open up `convert/html.rb` and a method for converting the infoblock with the
       eos
     end
 
-If we want to do this for LaTeX we can utilize a package called notes that supports everything from information to
-warning notes. To construct an information note we do the following:
+If we want to do this for LaTeX we can utilize a package called *notes* that supports everything from information to
+warning notes. To construct an information note we use the following:
 
 {:lang="TeX"}
     \begin{informationnote}
@@ -314,11 +321,13 @@ method:
       result << '\\end{informationnote}'
     end
 
-We can simply repeat the process for any of the other types of note blocks.
+That is it!
+
+You can repeat the process detailed in this section for any of the other types of note blocks.
 
 ## Includes like Leanpub
 
-We have already done some code for including snippets but it just so happens that Leanpub support it's own syntax for this. You can include a sample file like this:
+We have already made a converter for including snippets but it just so happens that Leanpub has it's own syntax for this. You can include a sample file like this:
 
 {:lang="md"}
     <<(code/sample1.rb)
@@ -369,15 +378,15 @@ Now open up `kramdown/converter/html.rb` and add a converter method for include 
     end
 
 This takes the file path; attempts to load the file if it exists, adds a language class based on the ext name and then
-finally passes the file contents off to convert_codeblock for processing.
+finally passes the file contents off to `convert_codeblock` for processing.
 
 Since we are utilizing `convert_codeblock` for the final transformation, the method is the exact same for the LaTeX
 converter. Just copy it on over.
 
 ## Make the code blocks detect their language
 
-You can make codeblocks detect their language from the lang attribute by overiding the `convert_codeblock` method
-and pull the language from attribute and insert into onto the class, then just pass off the handling to super:
+You can make codeblocks detect their language from the lang attribute by overriding the `convert_codeblock` method
+and pulling the language from attribute and then inserting it into onto the class attribute:
 
 {:lang="ruby"}
   def convert_codeblock(el, indent)
@@ -389,8 +398,8 @@ Now your codeblocks will be properly highlighted.
 
 ## Use pygments with Kramdown
 
-This is really straightforward but I thought it worth including instructions and snippet anyway.
-Override the `convert_codeblock` method to the following:
+This is really straightforward but I thought it worth including instructions and a snippet anyway.
+Override the `convert_codeblock` method and change its contents to the following:
 
 {:lang="ruby"}
     def convert_codeblock(el, indent)
@@ -401,6 +410,6 @@ Override the `convert_codeblock` method to the following:
       "#{' '*indent}<div#{html_attributes(attr)}>#{result}#{' '*indent}</div>\n"
     end
 
-That is it, told you it was really straightforward.
+That is it! I told you it was really straightforward.
 
 W> Make sure you have required the _pygments_ gem at some point.
