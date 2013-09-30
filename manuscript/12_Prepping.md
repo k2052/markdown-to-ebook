@@ -1,8 +1,7 @@
 # Prepping for Publishing.
 
-Once we have our book all written it's time to distribute it. By now we have the essential in-between formats latex, 
-pdf and html but we are going to need to wrap these up in the various wrappers for various ebook readers. We are close 
-but that last 1% can be killer enough to kill a product, or at least delay it. It's the last 1% I'll focus on now.
+Once we have our book written it's time to distribute it. By now we have the essential in-between formats: latex,  pdf
+and html but we are going to need to wrap these up in the various wrappers for various ebook readers. We are close,  but that last 1% can be killer enough to kill a product, or at least delay it. s
 
 ## Converting to epub
 
@@ -40,7 +39,7 @@ And Calibre:
 
 Visit the [download page](http://calibre-ebook.com/download) and install it.
 
-And Sigil:
+Then install Sigil:
 
 *Ubuntu*
 
@@ -53,7 +52,7 @@ And Sigil:
 
 Visit the [download page](http://code.google.com/p/sigil/downloads/list) and install it.
 
-Then run kramdown to generate the html.
+Now run kramdown to generate the html:
 
 {:lang="sh"}
     $ kramdown Joined.md -o html --template document > Joined.html
@@ -115,8 +114,9 @@ Then place this right after the `\begin{document}`:
     \cleardoublepage
 
 You can then just pass this to Kramdown when you generate the LaTeX. Adding cover pages in epub and mobi can be
-accomplished with [Calibre](http://calibre-ebook.com), an ebook conversion tool you have probably heard of before. Covers can simply be
-passed into Calibre. For example:
+accomplished with [Calibre](http://calibre-ebook.com), an ebook conversion tool you have probably heard of before.
+
+Covers can simply be passed into Calibre. For example:
 
 {:lang="sh"}
     $ ebook-convert tidy.xhtml Joined.epub --cover images/title_page.jpg
@@ -130,4 +130,4 @@ readability extensions are so popular.
 
 Rely on the default styles as much as possible and only customize when it's necessary to improve the UX of the book.
 This minimalist approach seems like it might interfere with creativity but it only redirects it to where it matters
-more.
+most.
