@@ -1,8 +1,5 @@
 # An Introduction
 
-He sat down at his typewriter and begin to write.... Wait, what is this? Is this movie set in 1990? *checks IMDB* It is
-set in 2008 --- why is he using a typewriter?! Please, not another quirky writer trope...
-
 Writing a book can be daunting, learning the tools to write the book can be even more daunting. A quick google search
 will turn up a multitude of services, tools, apps and frameworks designed to write a book. Apps; iBooks, Adobe Acrobat,
 inDesign Skyreader, Kindle Publisher etc. Formats; PDF, ePUB, LaTeX....
