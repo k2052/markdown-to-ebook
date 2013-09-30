@@ -1,32 +1,33 @@
-# Going local
+# Going Local
 
-We are going to want to be able to do what Leanpub does for us ourselves. Maybe Leanpub goes under, maybe we want to
-preview quicker, maybe we just want to tweak the output. Generating the formats Leanpub does is fairly straightforward
-[^pdf-exceptions]. Kramdown supports pretty much all formats via its LaTeX and HTML converters.
+Generating the formats Leanpub does is fairly straightforward [^pdf-exceptions]. Kramdown supports pretty much all
+formats via its LaTeX and HTML converters. What is going to be a bit more involved is replicating all the styling
+options and workflow Leanpub supports. For that we are going to need to get our hands dirty with a little ruby. 
 
-The main format we need is PDF which is pretty much the standard file format for reading stuff  on the desktop. PDF is
-to the desktop as King James is to the Bible or Emperors are to Penguins.
+T> You could if you like skip this chapter and simply download my [krambook](https://github.com/k2052/krambook) gem.
+T> I'd recommend you at least skim over the chapter though so you get a basic idea of how to customize a markdown 
+T> parser. If you go through all the effort of writing an ebook chances are you are going to want to do at least 
+T> some custom stuff. 
 
 ## All the Markdown in One
 
 First things first, we need a script that takes our Book.txt, parses the index and then joins all the Markdown files
 into one. We can then pass the joined file into Kramdown to get LaTeX back. Why LaTeX? Kramdown doesn't support support
-PDF, which means our base starting format for PDF generation is always going to be LaTeX. Going to PDF via LaTeX is 
-very simple. You'll see how simple in a bit.
+PDF, which means our starting format for PDF generation is always going to be LaTeX. 
 
-We will develop the script to be used from IRB first, then we will wrap it all up as command line script and then
-finally as a gem. 
+We will develop the script to be used from IRB first, then we will wrap it all up as command line script and finally, 
+as a gem.
 
-The first thing we need to do is read Book.txt as a string, then split the lines and white space;
-leaving us with an array of files to load and parse.
+The first thing we need to do is read Book.txt as a string, then split the lines and white space; giving us an array of
+files to load and parse.
 
-We will need some vars to hold things:
+First some vars to hold things:
 
 {:lang="ruby"}
     files            = []
     joined_file_path = File.expand_path './manuscript/' + 'Joined.md'
 
-Now we need to parse our index file `Book.txt` and get the names of the files:
+Now we need to parse our index file (Book.txt) and get the names of the files:
 
 {:lang="ruby"}
     File.open(File.expand_path('./manuscript/Book.txt'), 'r') do |f|
@@ -36,7 +37,9 @@ Now we need to parse our index file `Book.txt` and get the names of the files:
     end
 
 This opens the file for reading, loops through each line, strips the line of whitespace and then adds it to a _files_ 
-array. Next, we need to join all the files and output them into a single Markdown file:
+array.
+
+Now we join all the files and output them into a single Markdown file:
 
 {:lang="ruby"}
     File.open(joined_file_path, 'a') do |f|
@@ -48,8 +51,9 @@ array. Next, we need to join all the files and output them into a single Markdow
     end
 
 This opens an output file in append mode, loops through our files array, reads each file into a new string and appends
-the content to the output file. There is one problem though, we don't check for an existing `Joined.md` file. Let's add
-a check for that now:
+the content to the output file.
+
+There is one problem though, we don't check for an existing `Joined.md` file. Let's add a check for that now:
 
 {:lang="ruby"}
     File.delete(joined_file_path) if File.exist?(joined_file_path)
@@ -75,8 +79,8 @@ The full ruby script now looks like:
       end
     end
 
-Save the file as `join_manuscript_files.rb`. Copy over some test content from a Sample Leanpub project and then boot up
-irb:
+Save the file as `join_manuscript_files.rb` to a folder. Copy over some test content from a Sample Leanpub project and
+then boot up irb:
 
 {:lang="sh"}
     $ irb
@@ -87,8 +91,10 @@ We can run the script by simply requiring it:
     require 'kramdown'
     require './join_manuscript_files.rb'
 
-After running, open _Joined.md_. you'll notice one problem, on the very top of the file there will be an extra new line
-. We can fix the this by adding a check for the last line to our files loop. The files loop now looks like:
+If you open _Joined.md_ you'll notice one problem, on the very top of the file there will be an extra new line
+. We can fix the this by adding a check for the last line to our files loop. T
+
+he files loop now looks like:
 
 {:lang="ruby"}
     files.each do |file_path|
@@ -114,18 +120,17 @@ The script would then look like:
       f.puts '' unless file_path == files.last
     end
 
-We can easily swap out formats by changing the `to_format` call e.g:
+We can easily swap out formats by changing the `to_format` call e.g the following would output a joined file of LaTeX: 
 
 {:lang="ruby"}
     f.puts Kramdown::Document.new(IO.read(full_file_path)).to_latex if File.exists?(full_file_path)
 
-would output a joined file of LaTeX. Later, we will wrap this up by creating a gem for the script.
+The does it for now. Later we will wrap this up by creating a gem for the script.
 
 ## Creating PDFs
 
 Once we have a joined Markdown file we can turn it into LaTeX and then into a PDF. To turn it into LaTeX we can simply
-pass it (the joined file) into the Kramdown command line tool. Kramdown only takes a couple arguments (besides help and
-version) they are:
+pass it (the joined file) into the Kramdown command line tool. The Kramdown bin takes two arguments:
 
 {:lang="sh"}
     -i, --input ARG
@@ -133,12 +138,15 @@ version) they are:
     -o, --output ARG
           Specify one or more output formats separated by commas: html (default), kramdown, latex or remove_html_tags
 
-Kramdown will return its output to the terminal (stdout) so we will need to pipe it to a file:
+T> The Kramdown CLI takes arguments using a single dash and arguments passed to them are designated using two dashes
+T> e.g `-o latex --template document`
+
+Kramdown will output to the stdout (the terminal) so we will need to pipe it to a file:
 
 {:lang="sh"}
     $ kramdown Joined.md -o latex > Joined.tex
 
-Now we just need to utilize `pdflatex` to convert LaTeX to pdf. The command is simple:
+Now we just need to utilize `pdflatex` to convert LaTeX to PDF. The command for this is simple:
 
 {:lang="sh"}
     $ pdflatex Joined.tex
@@ -192,25 +200,24 @@ Let's run pdflatex again:
 
 All appears to have ran correctly! 
 
-Let's open the generated pdf:
+Now open the generated pdf:
 
 {:lang="sh"}
     $ xdg-open Joined.pdf
 
 *facepalm* There is a noticeable lack of a table of contents. Now before you consider taking up ebook crafting with a
-typesetter and typewriter, let's do some googling. 
+typesetter and typewriter, let's do some googling, well I'll do the googling, you can just read onward.
 
 It turns out that pdflatex needs to be ran more than once to  generate a proper document. It needs to go through once 
 to find all the references, page numbers and footnotes etc, then a second time to add them.
 
-A> pdflatex stores it's state and logs in a variety of files in the same directory you run
-A> it in. You might consider using a separate output directory or the manuscript folder could get a bit
-A> messy. 
+A> pdflatex stores its state and logs in a variety of files in the same directory you run
+A> it in. You might consider using a separate output directory, the manuscript folder can get a bit
+A> messy otherwise.
 
 ## Images and Your PDFs.
 
-You might be wondering about image assets, I am to. Let's see what happens when we add some images. We will include 
-them in our Markdown and then go through the conversion process again.
+Let's see what happens when we add some images. We will include them in our Markdown and then go through the conversion process again.
 
 Add the following (make sure the image is relative to the directory the file is in) to your Markdown:
 
@@ -254,7 +261,7 @@ of the document. First things first, let's figure out what caused this in the Te
 At least to my untrained eyes, it looks like the `\begin{figure}` and `\end{figure}` is the source of the problem. 
 Let's manually remove this and regenerate the file to see what happens:
 
-The latex should now look like:
+The TeX should now look like:
 
 {:lang="TeX"}
     \begin{center}
@@ -263,9 +270,11 @@ The latex should now look like:
 
 I> I removed the caption which was part of figure section.
 
-After running things again we get the desired output. Obviously, we cant manually do this every time we add an image, 
-so how do we construct our Markdown so it happens automatically? Let's open up `kramdown/converter/latex.rb` and 
-search it for `figure`. The source for the `convert_standalone_image` method reveals what is up:
+If we run the conversion again then we get the desired output. Obviously, we cant manually do this every time we add an
+image,  so how do we construct our Markdown so it happens automatically? Let's open up `kramdown/converter/latex.rb`
+and search for `figure`. 
+
+The source for the `convert_standalone_image` method reveals what is up:
 
 {:lang="ruby"}
     # Helper method used by +convert_p+ to convert a paragraph that only contains a single :img
@@ -326,8 +335,8 @@ this will look like:
 {:lang="md"}
     ![Adventure Time](images/Finn.png){:center=""}
 
-We could simply monkeypatch this onto Kramdown but we want the feature available via cli so that requires forking
-Kramdown. Fork it on github and then change _convert_img_ (in kramdown/converter/latex.rb) to:
+We could simply monkeypatch this onto Kramdown but we want the feature available via cli and to achieve that requires
+modifying Kramdown directly. Fork it on github and then change _convert_img_ (in kramdown/converter/latex.rb) to:
 
 {:lang="ruby"}
     def convert_img(el, opts)
@@ -361,7 +370,6 @@ A>     $ rbenv rehash
 A> 
 A> after installing.
 
-
 Run the whole generation process again:
 
 {:lang="sh"}
@@ -384,5 +392,5 @@ And we get:
 [^pdf-exceptions]:    
     With the exception of PDF most the ebook formats are rather simple. Most if not all of them are at
     their core just wrappers around html. Even the kindle format is just mobi with Amazon's crap wrapped around it.   
-    Once we have HTML + PDF it's pretty damn easy to support everything from that starting point; even if we have   to 
+    Once we have HTML + PDF it's pretty damn easy to support everything from that starting point; even if we have to 
     code something ourselves, it will be minimal.
