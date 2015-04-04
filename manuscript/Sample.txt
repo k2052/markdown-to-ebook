@@ -1,3 +1,0 @@
-01_Introduction.md
-02_WeAreGoingToNeedAWorkflow.md
-03_FlavorsOfMarkdown.md
